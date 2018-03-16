@@ -1,1 +1,45 @@
+import java.awt.*;
+import javax.swing.*;
+public class shapeGenerator {
+	static JButton square;
+	static JButton triangle;
+	JButton circles;
+	JPanel choices;
+	static JButton both1;
+	
+	static JFrame page;
+	static JPanel buttons;
+	//static Font bigLetters1;
+	static JLabel backDescription;
+	static backArea ba= new backArea();
+	public static void go()	{
+		page= new JFrame();
+		
+		buttons= new JPanel();
+		page.setSize(1000, 1000);
+		page.setVisible(true);
+		buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
+		Font big= new Font("Times New Roman", Font.BOLD, 36);
+		both1= new JButton("Both");
+		both1.addActionListener(new backArea.both());
+		
+		backDescription= new JLabel("Click the following buttons to describe what you want");
+		backDescription.setFont(big);
+		square= new JButton("Squares only");
+		square.addActionListener(new backArea.squareDraw());
+		triangle= new JButton("Triangles only");
+		triangle.addActionListener(new backArea.triangleDraw());
+		buttons.add(backDescription);
+		buttons.add(square);
+		buttons.add(triangle);
+		buttons.add(both1);
+		
+		page.getContentPane().add(BorderLayout.WEST, buttons);
+		page.getContentPane().add(BorderLayout.EAST, new backArea());
+	}
+	public static void main (String[]args)	{
+		go();
+	}
+	}
+	
 
